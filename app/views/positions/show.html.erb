@@ -1,0 +1,51 @@
+ <div class="container d-block justify-content-center align-items-center">   
+    <p style="color: green"><%= notice %></p>
+
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col">
+      <%= render @position %>   
+
+        <nav class="nav pt-3 pb-3"> 
+                <% if user_signed_in? %>  
+                  <div class="d-flex">           
+                    <%= button_to "Postular", apply_position_path(@position), method: :post, class: "btn btn btn-secondary text-white mt-2 ms-3" %>  
+                    
+              
+                  </div>
+                <% end %>
+                <% if current_user.admin?%>          
+                  <div class="d-flex">
+                    <%= button_to "Editar", edit_position_path(@position), method: :get, class: "btn btn btn-secondary mt-2 ms-3" %>
+                    <%= button_to "Eliminar", position_path(@position), method: :delete, data: { confirm: "¿Estás seguro?" }, class: "btn btn btn-secondary  mt-2 ms-3 me-5" %>      
+                    <%= button_to "Volver a ofertas", positions_path, method: :get, class: "btn btn btn-secondary  mt-2 ms-3 me-5"%>
+                  </div>  
+                  <div class="container mt-5">
+                    <% @applicants.each do |applicant| %>
+                        <div class="card text-bg-tertiary mb-3 mt-5" style="max-width: 18rem;">
+                          <div class="card-header">Postulaciones</div>
+                            <div class="card-body">        
+                              <h5 class="card-title"></h5>
+                               <p class="card-text"></p>
+                                      <ul>
+                                      
+                                          <li><strong>Username: </strong><%= applicant.username %></li>
+                                          <li><strong>Cargo actual: </strong><%= applicant.current_role %></li>
+                                          <li><strong>Habilidades: </strong><%= applicant.skill %></li>
+                                          <li><strong>Experiencia: </strong><%= applicant.experience %></li>
+                                          
+                                      
+                                      </ul>
+                            </div>
+                          </div>
+                        </div>
+                    <% end %>
+                  </div>  
+                <% end %>   
+        </nav>
+              
+    </div>
+    <div class="col-3">          
+    </div> 
+</div>

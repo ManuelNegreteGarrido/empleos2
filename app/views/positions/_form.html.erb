@@ -1,0 +1,42 @@
+<%= form_with(model: position) do |form| %>
+  <% if position.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(position.errors.count, "error") %> prohibited this position from being saved:</h2>
+
+      <ul>
+        <% position.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label :responsibilities, style: "display: block" %>
+    <%= form.text_area :responsibilities, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label :requirements, style: "display: block" %>
+    <%= form.text_area :requirements, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.label :salary, style: "display: block" %>
+    <%= form.number_field :salary, class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
