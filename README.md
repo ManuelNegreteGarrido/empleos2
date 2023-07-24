@@ -1,24 +1,16 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![IMG-5525](https://github.com/ManuelNegreteGarrido/empleos2/assets/138139623/8ab51eaa-a222-4502-a994-4881175886f8)
 
-Things you may want to cover:
 
-* Ruby version
+foto mas o menos de lo que fue el proyecto,
+tengo que decir que para trabajar con base de datos y subirlas a alguna plataforma es ultra dificil.
+cada una tiene sus comandos
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+para heroku
+heroku run rails db:seed
+heroku run rails db:seed
+heroku run rails console
+bundle exec rake db:seed
+bundle exec rake db:create
+bundle exec rake db:migrate
+esas son algunas
